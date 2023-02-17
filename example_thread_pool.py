@@ -23,9 +23,9 @@ def get_task_result_function():
 
 if __name__ == "__main__":
     with ThreadPoolExecutor(max_workers=2) as pool:
+        # prints: "hello world!" 3 times.
         pool.submit(loop_function)
         # prints: "1"
         print(pool.submit(get_task_result_function).result())
-        # prints: "hello world!" twice.
         time.sleep(1)
         stop_threads_flag = True
