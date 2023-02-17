@@ -14,8 +14,8 @@ async def loop_coroutine():
 
 if __name__ == "__main__":
     with AsyncioThreadLoop() as loop:
-        # prints: "1"
-        print(loop.submit(get_task_result_coroutine()).result())
         # prints: "hello world!" twice due to sleep and immediate task cancellation.
         loop.submit(loop_coroutine())
+        # prints: "1"
+        print(loop.submit(get_task_result_coroutine()).result())
         sleep(1)
